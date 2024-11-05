@@ -14,6 +14,16 @@ public class Guest {
     private String contactInfo;
     private Set<Booking> bookings;
 
+    public Guest() {
+        this.id = UUID.randomUUID();
+        this.firstName = ""; // Or null, depending on your needs
+        this.lastName = "";  // Or null
+        this.username = "";  // Or null
+        this.password = "";  // Or null
+        this.contactInfo = ""; // Or null
+        this.bookings = new HashSet<>();
+    }
+
     public Guest(String firstName, String lastName, String username, String password,  String contactInfo) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
