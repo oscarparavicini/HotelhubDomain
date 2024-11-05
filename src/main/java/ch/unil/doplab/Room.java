@@ -13,6 +13,16 @@ public class Room {
     private int maxOccupancy;
     private Set<Booking> bookings;
 
+    public Room() {
+        this.id = UUID.randomUUID();
+        this.roomNumber = 0;
+        this.type = "";
+        this.price = 0;
+        this.amenities = "";
+        this.maxOccupancy = 1;
+        this.bookings = new HashSet<>();
+    }
+
     public Room(int roomNumber, String type, double price, String amenities, int maxOccupancy) {
         this.id = UUID.randomUUID();
         this.roomNumber = roomNumber;
