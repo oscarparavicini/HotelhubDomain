@@ -55,14 +55,4 @@ public class Hotel {
 
     public void addRoom(Room room) { this.rooms.add(room); }
     public void removeRoom(Room room) { this.rooms.remove(room); }
-
-    public Set<Room> findAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate) {
-        Set<Room> availableRooms = new HashSet<>();
-        for (Room room : rooms) {
-            boolean isAvailable = true;
-            for (Booking booking : room.getBookings()) {
-                if (!(checkInDate.isAfter(booking.getCheckOutDate()) || checkOutDate.isBefore(booking.getCheckInDate()))) {isAvailable = false;break;}}
-            if (isAvailable) {
-                availableRooms.add(room);}}
-        return availableRooms;}
 }

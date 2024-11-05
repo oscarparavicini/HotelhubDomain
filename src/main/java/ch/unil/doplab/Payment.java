@@ -20,20 +20,21 @@ public class Payment {
         this.expiryDate = null;
     }
 
-    public UUID getId() {return id;}
-    public double getAmount() {return amount;}
-    public void setAmount(double amount) {this.amount = amount;}
-    public LocalDate getPaymentDate() {return paymentDate;}
-    public String getStatus() {return status;}
-    public void setStatus(String status) {this.status = status;}
-    public String getCardNumber() {return cardNumber;}
-    public void setCardNumber(String cardNumber) {this.cardNumber = cardNumber;}
-    public LocalDate getExpiryDate() {return expiryDate;}
-    public void setExpiryDate(LocalDate expiryDate) {this.expiryDate = expiryDate;}
+    public UUID getId() { return id; }
+    public double getAmount() { return amount; }
+    public void setAmount(double amount) { this.amount = amount; }
+    public LocalDate getPaymentDate() { return paymentDate; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getCardNumber() { return cardNumber; }
+    public void setCardNumber(String cardNumber) { this.cardNumber = cardNumber; }
+    public LocalDate getExpiryDate() { return expiryDate; }
+    public void setExpiryDate(LocalDate expiryDate) { this.expiryDate = expiryDate; }
 
     public void confirmPayment(String cardNumber, LocalDate expiryDate) {
         this.cardNumber = cardNumber;
         this.expiryDate = expiryDate;
         this.status = "Confirmed";
-        this.paymentDate = LocalDate.now();}
+        this.paymentDate = LocalDate.now();
+    }
 }

@@ -1,5 +1,8 @@
 package ch.unil.doplab;
 
+import ch.unil.doplab.Guest;
+import ch.unil.doplab.Room;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
@@ -33,17 +36,9 @@ public class Booking {
     public void setGuest(Guest guest) { this.guest = guest; }
     public Payment getPayment() { return payment; }
     public void setPayment(Payment payment) { this.payment = payment; }
+
     public double calculateTotalAmount() {
         long duration = ChronoUnit.DAYS.between(checkInDate, checkOutDate);
-        if (duration < 0) {
-            System.out.println("Invalid date please try again");
-            return 0;
-        } else {
-            double pricePerNight = room.getPrice();
-            double totalAmount = duration * pricePerNight;
-            this.payment.setAmount(totalAmount);
-            return totalAmount;
-        }
+        return duration > 0 ? duration * room.getPrice() : 0;
     }
-
 }
