@@ -15,6 +15,16 @@ public class Hotel {
     private String contactInfo;
     private Set<Room> rooms;
 
+    public Hotel() {
+        this.username = "";
+        this.password = "";
+        this.id = UUID.randomUUID();
+        this.name = "";
+        this.address = "";
+        this.contactInfo = "";
+        this.rooms = new HashSet<>();
+    }
+
     public Hotel(String username, String password, String name, String address, String contactInfo) {
         this.username = username;
         this.password = password;
