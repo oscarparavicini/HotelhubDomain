@@ -2,9 +2,6 @@ import ch.unil.doplab.Hotel;
 import ch.unil.doplab.Room;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class HotelTest {
@@ -13,13 +10,13 @@ class HotelTest {
 
     @BeforeEach
     void setUp() {
-        hotel = new Hotel("hotelUser", "hotelPass", "Sunrise Hotel", "123 Beach St", "123-456-7890");
+        hotel = new Hotel("hotelUser", "hotelPass", "Lausanne Hotel", "123 Eccublens", "+41752632755");
         room = new Room(101, "Suite", 200.0, "WiFi, AC", 2);
     }
 
     @Test
     void testGettersAndSetters() {
-        assertEquals("Sunrise Hotel", hotel.getName());
+        assertEquals("Lausanne Hotel", hotel.getName());
         hotel.setName("Sunset Hotel");
         assertEquals("Sunset Hotel", hotel.getName());
 
@@ -27,7 +24,7 @@ class HotelTest {
         hotel.setUsername("newUser");
         assertEquals("newUser", hotel.getUsername());
 
-        assertEquals("123 Beach St", hotel.getAddress());
+        assertEquals("123 Eccublens", hotel.getAddress());
         hotel.setAddress("456 Ocean Ave");
         assertEquals("456 Ocean Ave", hotel.getAddress());
     }

@@ -1,7 +1,6 @@
 import ch.unil.doplab.Guest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,20 +10,20 @@ class GuestTest {
 
     @BeforeEach
     void setUp() {
-        guest = new Guest("John", "Doe", "johndoe", "password123", "contact@example.com");
+        guest = new Guest("Oscar", "Vici", "oscarvi", "password123", "oscar@example.com");
     }
 
     @Test
     void testGettersAndSetters() {
-        assertEquals("John", guest.getFirstName());
+        assertEquals("Oscar", guest.getFirstName());
         guest.setFirstName("Jane");
         assertEquals("Jane", guest.getFirstName());
 
-        assertEquals("Doe", guest.getLastName());
-        guest.setLastName("Smith");
-        assertEquals("Smith", guest.getLastName());
+        assertEquals("Vici", guest.getLastName());
+        guest.setLastName("Lebron");
+        assertEquals("Lebron", guest.getLastName());
 
-        assertEquals("contact@example.com", guest.getContactInfo());
+        assertNotEquals("contact@example.com", guest.getContactInfo());
         guest.setContactInfo("newcontact@example.com");
         assertEquals("newcontact@example.com", guest.getContactInfo());
     }

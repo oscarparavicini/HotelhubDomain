@@ -1,8 +1,5 @@
 package ch.unil.doplab;
 
-import ch.unil.doplab.Guest;
-import ch.unil.doplab.Room;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;

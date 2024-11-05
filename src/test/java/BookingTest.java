@@ -3,10 +3,7 @@ import ch.unil.doplab.Guest;
 import ch.unil.doplab.Room;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookingTest {
@@ -16,7 +13,7 @@ class BookingTest {
 
     @BeforeEach
     void setUp() {
-        guest = new Guest("John", "Doe", "johndoe", "password", "contact@example.com");
+        guest = new Guest("Oscar", "Vicini", "ovicini", "pass1234", "oscar@example.com");
         room = new Room(101, "Suite", 200.0, "WiFi, AC", 2);
         booking = new Booking(room, LocalDate.now(), LocalDate.now().plusDays(3), guest);
     }
@@ -30,7 +27,7 @@ class BookingTest {
     @Test
     void testGettersAndSetters() {
         assertEquals(guest, booking.getGuest());
-        booking.setGuest(new Guest("Jane", "Doe", "janedoe", "pass", "contact@sample.com"));
+        booking.setGuest(new Guest("Tobby", "Todd", "tobbytod", "pass18266227", "todd@sample.com"));
         assertNotEquals(guest, booking.getGuest());
 
         assertEquals(room, booking.getRoom());

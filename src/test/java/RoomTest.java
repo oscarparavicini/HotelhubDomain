@@ -1,9 +1,6 @@
 import ch.unil.doplab.Room;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomTest {
@@ -21,8 +18,8 @@ class RoomTest {
         assertEquals(202, room.getRoomNumber());
 
         assertEquals("Suite", room.getType());
-        room.setType("Deluxe");
-        assertEquals("Deluxe", room.getType());
+        room.setType("President Suite");
+        assertEquals("President Suite", room.getType());
 
         assertEquals(150.0, room.getPrice());
         room.setPrice(180.0);
