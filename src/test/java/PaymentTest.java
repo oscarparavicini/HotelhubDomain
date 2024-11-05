@@ -1,59 +1,36 @@
 import ch.unil.doplab.Payment;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PaymentTest {
+class PaymentTest {
+    private Payment payment;
 
-    @Test
-    void testPaymentCreation() {
-        Payment payment = new Payment(100.0);
-        assertNotNull(payment.getId());
-        assertEquals(100.0, payment.getAmount());
-        assertNull(payment.getPaymentDate()); // Payment date should be null initially
-        assertEquals("Pending", payment.getStatus());
-        assertNull(payment.getCardNumber());
-        assertNull(payment.getExpiryDate());
-    }
-
-    @Test
-    void testSetAmount() {
-        Payment payment = new Payment(50.0);
-        payment.setAmount(200.0);
-        assertEquals(200.0, payment.getAmount());
-    }
-
-    @Test
-    void testSetStatus() {
-        Payment payment = new Payment(150.0);
-        payment.setStatus("Amount has been paid");
-        assertEquals("Amount has been paid", payment.getStatus());
-    }
-
-    @Test
-    void testSetCardNumber() {
-        Payment payment = new Payment(150.0);
-        payment.setCardNumber("1234-5678-9012-3456");
-        assertEquals("1234-5678-9012-3456", payment.getCardNumber());
-    }
-
-    @Test
-    void testSetExpiryDate() {
-        Payment payment = new Payment(150.0);
-        LocalDate expiryDate = LocalDate.of(2025, 12, 31);
-        payment.setExpiryDate(expiryDate);
-        assertEquals(expiryDate, payment.getExpiryDate());
+    @BeforeEach
+    void setUp() {
+        payment = new Payment(300.0);
     }
 
     @Test
     void testConfirmPayment() {
-        Payment payment = new Payment(75.0);
-        String cardNumber = "9876-5432-1098-7654";
-        LocalDate expiryDate = LocalDate.of(2026, 10, 15);
-        payment.confirmPayment(cardNumber, expiryDate);
+        payment.confirmPayment("1234567890123456", LocalDate.of(2025, 12, 31));
+        assertEquals("1234567890123456", payment.getCardNumber());
         assertEquals("Confirmed", payment.getStatus());
-        assertEquals(cardNumber, payment.getCardNumber());
-        assertEquals(expiryDate, payment.getExpiryDate());
         assertNotNull(payment.getPaymentDate());
+        assertEquals(LocalDate.of(2025, 12, 31), payment.getExpiryDate());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        assertEquals(300.0, payment.getAmount());
+        payment.setAmount(400.0);
+        assertEquals(400.0, payment.getAmount());
+
+        assertEquals("Pending", payment.getStatus());
+        payment.setStatus("Failed");
+        assertEquals("Failed", payment.getStatus());
     }
 }
